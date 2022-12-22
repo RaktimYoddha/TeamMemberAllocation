@@ -2,7 +2,6 @@ import Teams from './Teams'
 import TeamMembers from './TeamMembers'
 
 const Employees = () => {
-
   return (
     <main className="container">
       <div className="row justify-content-center">

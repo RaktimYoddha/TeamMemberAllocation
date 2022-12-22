@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from 'react';
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
+  
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "TeamB");
 
   const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || [{
@@ -98,9 +99,17 @@ export const DataProvider = ({ children }) => {
     localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam));
   }, [selectedTeam]);
 
+
+  /********************** Team selection function *********************************/
+
   function handleTeamSelectionChange(event) {
     setTeam(event.target.value);
   }
+
+
+
+
+  /*********************** Card click function *************************************/
 
   function handleEmployeeCardClick(event) {
     const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)

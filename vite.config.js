@@ -3,10 +3,10 @@ import legacy from '@vitejs/plugin-legacy';
 
 const getConfig = ({ command, mode }) => ({
   server: {
-    host: '0.0.0.0',
-    hmr: {
-      clientPort: 443,
-    }
+    hmr: true,
+    watch: {
+      usePolling: true
+    },
   },
   plugins: [
     react(),
